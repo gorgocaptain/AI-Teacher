@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className="menu">
             <div className="logo">
                 <BiBookAlt className="logo-icon"/>
-                <h2>Scholar Rank</h2>
+                <h2>Pineapple Pathways</h2>
             </div>
             <div className="menu--list">
                 <a href="/dashboard" className="item">
