@@ -1,0 +1,75 @@
+.application {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+  }
+  
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(63, 49, 49);
+    z-index: 2;
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: rgb(63, 49, 49);
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 1.5rem;
+    color: rgb(63, 49, 49);
+    margin-bottom: 10px;
+  }
+  
+  select, input[type="text"] {
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 2px solid rgb(63, 49, 49);
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    width: 110px;
+    margin-left: 10px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    border: 2px solid rgb(63, 49, 49);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  button:hover {
+    background-color: #3c8d40;
+  }
+  input::placeholder {
+    color: rgb(150, 150, 150);
+   
+    font-size: small;
+  }
+  
+  
