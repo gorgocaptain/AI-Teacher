@@ -34,12 +34,12 @@ const ParticlesComponent = (props) => {
           },
         },
         color: {
-          value: "#cc9e9e",
+          value: "#C4AC4B",
         },
         links: {
           enable: true,
-          distance: 100,
-          color: "#cc9e9e",
+          distance: 10,
+          color: "#C4AC4B",
           width: 5,
           opacity: 0.3, 
         },
@@ -56,7 +56,7 @@ const ParticlesComponent = (props) => {
           },
         },
         opacity: {
-          value: { min: 0.1, max: 0.4 },
+          value: { min: 0.1, max: 0.2 },
         },
         size: {
           value: { min: 6, max: 10 },

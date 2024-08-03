@@ -72,4 +72,15 @@
     font-size: small;
   }
   
-  
+ img {
+margin-top: -100px;
+  max-height: 250px;
+  margin-bottom: -100px;
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+img.hidden {
+  opacity: 0;
+}
