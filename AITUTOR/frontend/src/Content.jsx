@@ -16,7 +16,7 @@ const Content = () => {
                     <input type="checkbox" id="financial" name="financial" />
                     <label htmlFor="average">Average</label>
                     <input type="number" id="average" name="average" max="100" className="average"/>
-                    <label htmlFor="race">Race: </label>
+                    <label class = "race" htmlFor="race">Race: </label>
                     <select id="race">
                         <option value="White">White</option>
                         <option value="Black">Black</option>
@@ -30,10 +30,19 @@ const Content = () => {
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
                     </select>
+                    <label htmlFor="income">Family Income: </label>
+                    <select id="income">
+                        <option value="<$30,000">Less than $30,000 </option>
+                        <option value="$30,000 - $60,000">$30,000 - $60,000</option>
+                        <option value="$60,000 - $90,000">$60,000 - $90,000</option>
+                        <option value="$90,000 - $120,000">90,000 - $120,000</option>
+                        <option value="$120,000 - $150,000">$120,000 - $150,000</option>
+                        <option value="$150,00 +">$150,000 +</option>
+                    </select>
                 </div>
             </div>
 
-            <p>*Please provide an accurate description so we can pair you with the most relevant scholarships and programs.</p>
+            <p class = "description">*Please provide an accurate description so we can pair you with the most relevant scholarships and programs.</p>
             <input className="sign-button" type="button" value="Submit" />
         </div>
     );

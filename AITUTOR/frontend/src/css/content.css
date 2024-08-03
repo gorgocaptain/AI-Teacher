@@ -24,11 +24,13 @@ h1 {
     flex-wrap: wrap;
     gap: 10px;
     max-width: 300px;
+
 }
 
 .stuff > * {
     flex: 1 0 45%;
     box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .stuff input[type="checkbox"] {
@@ -54,16 +56,30 @@ p {
 .sign-button {
     padding: 15px 30px;
     font-size: 1.3em;
-    color: #ffffff;
-    background: #ff00ff;
+    color: black;
+    background-image: linear-gradient(144deg,#ff40df, #ff1cd9 50%,#ff20f8);
     border: 4px solid #ffffff;
     cursor: pointer;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
     text-transform: uppercase;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: 0.3s ease, color 0.3s ease;
     letter-spacing: 2px;
   }
   .sign-button:hover {
-    background: #ffffff;
-    color: #ff00ff;
+    background: black;
+    color: white;
     transform: scale(1.1);
   }
+
+
+  .description{
+    color: #000; 
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 3px solid #000;
+    background-color: #f9f9f9; 
+  }
+
