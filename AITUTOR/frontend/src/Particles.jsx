@@ -4,66 +4,42 @@ import { useCallback, useMemo } from "react";
 import './ParticlesComponent.css'; // Import the CSS file
 
 const ParticlesComponent = (props) => {
-  const options = useMemo(() => {
-    return {
-      fullScreen: {
-        enable: true,
-        zIndex: 1, // Set zIndex to ensure particles appear above the background
-      },
-      interactivity: {
-        events: {
-          onHover: {
+    const options = useMemo(() => ({
+        background: {
+          color: {
+            value: "#000000",
+          },
+        },
+        particles: {
+          number: {
+            value: 50,
+          },
+          color: {
+            value: "#ffffff",
+          },
+          size: {
+            value: 5,
+          },
+          move: {
             enable: true,
-            mode: "attract", // Use attract mode for acceleration
+            speed: 1,
           },
         },
-        modes: {
-          attract: {
-            distance: 100, // Distance at which particles will start attracting
-            duration: 0.4, // Duration of the acceleration effect
-            factor: 2, // How much the particles are accelerated
+        interactivity: {
+          events: {
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+          },
+          modes: {
+            repulse: {
+              distance: 100,
+            },
           },
         },
-      },
-      particles: {
-        number: {
-          value: 100,
-          density: {
-            enable: true,
-            value_area: 800,
-          },
-        },
-        color: {
-          value: "#C4AC4B",
-        },
-        links: {
-          enable: true,
-          distance: 10,
-          color: "#C4AC4B",
-          width: 5,
-          opacity: 0.3, 
-        },
-        move: {
-          enable: true,
-          speed: { min: 0.25, max: 0.5 },
-          direction: "none", 
-          outModes: {
-            default: "bounce", 
-          },
-          acceleration: {
-            enable: true, 
-            speed: { min: 0.5, max: 2 }, 
-          },
-        },
-        opacity: {
-          value: { min: 0.1, max: 0.2 },
-        },
-        size: {
-          value: { min: 6, max: 10 },
-        },
-      },
-    };
-  }, []);
+      }), []);
+      
 
   const particlesInit = useCallback((engine) => {
     loadSlim(engine);

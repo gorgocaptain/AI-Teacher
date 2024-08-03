@@ -1,91 +1,69 @@
-import "./css/creation.css";
 import React from 'react';
-import ParticlesComponent from "./Particles";
-import illustration1 from './images/Illustration11.png';
-import illustration2 from './images/Illustration10.png';
+import { useNavigate } from 'react-router-dom';
+import './css/creation.css';
+import students from './images/Illustration10.png';
+import guidance from './images/guidance.png';
+import scholarships from './images/scholarships.png';
+import applicationTips from './images/application-tips.jpg';
+import interviewPrep from './images/interview-prep.png';
+import essayAssistance from './images/essay-assistance.jpg';
+import ParticlesComponent from './Particles';
 
-class Creation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      course: 'B',
-      code: '',
-      currentImage: illustration1,
-      imageClass: ''
-    };
-  }
+const Creation = () => {
+  const navigate = useNavigate();  // Use useNavigate instead of useHistory
 
-  componentDidMount() {
-    this.imageInterval = setInterval(() => {
-      this.setState(prevState => ({
-        imageClass: 'hidden',
-      }), () => {
-        setTimeout(() => {
-          this.setState(prevState => ({
-            currentImage: prevState.currentImage === illustration1 ? illustration2 : illustration1,
-            imageClass: ''
-          }));
-        }, 500); // Matches the CSS transition duration
-      });
-    }, 5000); // Change image every 3 seconds
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.imageInterval);
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+  const handleJoinNowClick = () => {
+    navigate('/dashboard');  // Use navigate function to change route
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { course, code } = this.state;
-    console.log(`Course: ${course}, Code: ${code}`);
-  };
+  return (
+    <div className="application">
+      <ParticlesComponent id="tsparticles" />
+      <header className="header">
+        <h1>Scholar Rank</h1>
+        <p>Your Gateway to University Success</p>
+      </header>
 
-  render() {
-    return (
-      <div className="application">
-        <div className="center">
-          <img src={this.state.currentImage} alt="Illustration" className={this.state.imageClass} />
-          <h1>AI Teacher</h1>
-          <p>The perfect assistant for learning EXACTLY what you need</p>
-          <form onSubmit={this.handleSubmit}>
-            <select
-              name="course"
-              id="course"
-              value={this.state.course}
-              onChange={this.handleChange}
-            >
-              <option value="B">Biology</option>
-              <option value="C">Chemistry</option>
-              <option value="P">Physics</option>
-              <option value="M">Math</option>
-              <option value="E">English</option>
-            </select>
-            <input
-              type="text"
-              id="code"
-              name="code"
-              maxLength={6}
-              style={{ textTransform: 'uppercase' }}
-              placeholder="Course Code: "
-              value={this.state.code}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Submit</button>
-          </form>
+      <section className="intro">
+        <img src={students} alt="Students" className="intro-image" />
+        <p>
+          ScholarRank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, UniPal is here to make your journey smoother, helping you achieve your academic dreams with confidence.
+        </p>
+      </section>
+
+      <section className="features">
+        <h2>Why Choose ScholarRank?</h2>
+        <div className="feature">
+          <img src={guidance} alt="Personalized Guidance" className="feature-image" />
+          <p><strong>Personalized Guidance:</strong> Tailored advice based on your academic goals and interests.</p>
         </div>
-        
-        <div className="particles-wrapper">
-          <ParticlesComponent />
+        <div className="feature">
+          <img src={scholarships} alt="Scholarship Matching" className="feature-image" />
+          <p><strong>Scholarship Matching:</strong> Discover scholarships that fit your profile and needs.</p>
         </div>
-      </div>
-    );
-  }
-}
+        <div className="feature">
+          <img src={applicationTips} alt="Application Tips" className="feature-image" />
+          <p><strong>Application Tips:</strong> Expert advice on how to craft the perfect university application.</p>
+        </div>
+        <div className="feature">
+          <img src={interviewPrep} alt="Interview Prep" className="feature-image" />
+          <p><strong>Interview Prep:</strong> Get ready to impress with our comprehensive interview preparation.</p>
+        </div>
+        <div className="feature">
+          <img src={essayAssistance} alt="Essay Assistance" className="feature-image" />
+          <p><strong>Essay Assistance:</strong> Craft compelling essays with our writing tips and resources.</p>
+        </div>
+      </section>
+
+      <section className="cta">
+        <h2>Get Started Today!</h2>
+        <p>
+          Sign up for ScholarRank and take the first step towards securing your future. Whether you're looking for the best universities or the right scholarships, we've got you covered.
+        </p>
+        <button className="signup-button" onClick={handleJoinNowClick}>Join Now</button>
+      </section>
+    </div>
+  );
+};
 
 export default Creation;

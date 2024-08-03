@@ -1,9 +1,15 @@
-import logo from './logo.svg';
-import './css/App.css';
-import Creation from './creation.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Creation from './creation';
+import Dashboard from './Dashboard';
+
 function App() {
   return (
-    <Creation/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Creation />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
