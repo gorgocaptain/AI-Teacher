@@ -25,6 +25,8 @@ const Creation = () => {
       </header>
 
       <section className="intro">
+        <p className='above'>Pineapples are symbols of abundance and prosperity</p>
+        <p className='above' id='low'>A pineapple’s intricate pattern mirrors the complexity of university applications. Scholar Rank simplifies scholarships, AIF essays, University costs, and more!</p>
         <img src={students} alt="Students" className="intro-image" />
         <p>
           Scholar Rank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, Scholar Rank is here to make your journey smoother, helping you achieve your academic dreams with confidence.
