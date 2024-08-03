@@ -83,3 +83,34 @@ p {
     background-color: #f9f9f9; 
   }
 
+
+  .scholarship-unordered-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.scholarship-list {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.scholarship-list:nth-child(odd) {
+    background: #e9e9e9;
+}
+
+.scholarship-list:nth-child(even) {
+    background: #f4f4f4;
+}
+
+.scholarship-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.scholarship-list div {
+    margin-bottom: 5px;
+}
