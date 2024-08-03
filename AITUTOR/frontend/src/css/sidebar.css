@@ -1,0 +1,39 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 94vh;
+    border-right: 5px solid black;
+}
+.logo{
+    text-align: center;
+    padding: 20px;
+    color: black;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    border-bottom: 5px solid black;
+}
+.logo .icon{
+    font-size: 1.5rem;
+}
+.menu--list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.menu--list .item{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+    color: black;
+    margin-left: 10px;
+}
+.menu--list .item:hover{
+    margin-left: 20px;
+}

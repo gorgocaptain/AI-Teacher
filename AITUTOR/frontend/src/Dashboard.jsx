@@ -1,11 +1,15 @@
 // Dashboard.jsx
 import React from 'react';
-
+import Sidebar from './sidebar';
+import Content from './Content.jsx'
+import './css/dashboard.css'
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome to your dashboard!</p>
+    <div className='dashboard'>
+      <Sidebar/>
+      <div className='dashboard--content'>
+        <Content/>
+      </div>
     </div>
   );
 };

@@ -8,15 +8,19 @@ const ParticlesComponent = (props) => {
         background: {
           color: {
             value: "#000000",
+            
           },
+          opacity: 0
+          
         },
         particles: {
           number: {
             value: 50,
           },
           color: {
-            value: "#ffffff",
+            value: "#D3D3D3",
           },
+          
           size: {
             value: 5,
           },
@@ -24,6 +28,7 @@ const ParticlesComponent = (props) => {
             enable: true,
             speed: 1,
           },
+          
         },
         interactivity: {
           events: {

@@ -18,7 +18,7 @@ const Creation = () => {
 
   return (
     <div className="application">
-      <ParticlesComponent id="tsparticles" />
+      
       <header className="header">
         <h1>Scholar Rank</h1>
         <p>Your Gateway to University Success</p>
@@ -27,7 +27,7 @@ const Creation = () => {
       <section className="intro">
         <img src={students} alt="Students" className="intro-image" />
         <p>
-          ScholarRank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, UniPal is here to make your journey smoother, helping you achieve your academic dreams with confidence.
+          Scholar Rank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, UniPal is here to make your journey smoother, helping you achieve your academic dreams with confidence.
         </p>
       </section>
 
@@ -58,11 +58,11 @@ const Creation = () => {
       <section className="cta">
         <h2>Get Started Today!</h2>
         <p>
-          Sign up for ScholarRank and take the first step towards securing your future. Whether you're looking for the best universities or the right scholarships, we've got you covered.
+          Sign up for Scholar Rank and take the first step towards securing your future. Whether you're looking for the best universities or the right scholarships, we've got you covered.
         </p>
         <button className="signup-button" onClick={handleJoinNowClick}>Join Now</button>
       </section>
-    </div>
+    </div>  
   );
 };
 
