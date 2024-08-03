@@ -33,6 +33,7 @@ const Essay = () => {
             <div className='dashboard--content'>
                 <div>
                     <h1>Supplementary Application</h1>
+                    <p>Input an AIF question or input your response to an AIF question</p>
                     <div className="textarea-container">
                         <textarea
                             name="Text1"

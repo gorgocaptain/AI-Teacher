@@ -105,6 +105,7 @@ const Content = () => {
                         <option value="Asian">Asian</option>
                         <option value="Indigenous">Indigenous</option>
                         <option value="Latinx">Latinx</option>
+                        <option value="Other">Other</option>
                     </select>
                     
                     <label htmlFor="gender">Gender: </label>
