@@ -19,7 +19,7 @@ def sort_scholarships():
     print(user_input)
     find_schloarships(user_input)
     # Load and sort the CSV based on user input
-    df = pd.read_csv('C:/Users/akish/AI-Teacher/AITUTOR/backend/scholarships.csv')
+    df = pd.read_csv('./scholarships.csv')
     sorted_df = df[df['Deadline'].str.contains(user_input, case=False)]
     top_3 = sorted_df.head(3).to_dict(orient='records')
     
@@ -31,7 +31,7 @@ def find_schloarships(user_query):
     # Initialize the Cohere client with your API key
 
     # Path to the CSV file
-    csv_file_path = "C:/Users/akish/AI-Teacher/AITUTOR/backend/scholarships.csv"
+    csv_file_path = "./scholarships.csv"
 
     # Read the CSV file and create a list of scholarships
     scholarships = []
