@@ -4,7 +4,7 @@ import './css/content.css';
 const Content = () => {
     return (
         <div className="content">
-            <h1>Who are you?</h1>
+            <h1>who are you?</h1>
             
             <div className="textarea-container">
                 <textarea name="Text1" cols="100" rows="15" className="text-box"></textarea>
