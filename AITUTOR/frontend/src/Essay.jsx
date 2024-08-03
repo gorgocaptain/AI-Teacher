@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Sidebar from "./sidebar";
 import './css/essay.css';
 
 const Essay = () => {
-    const [textInput, setTextInput] = useState('');
-    const [feedback, setFeedback] = useState('');
+    const [textInput, setTextInput] = useState(() => {
+        return localStorage.getItem('essayTextInput') || '';
+    });
+    const [feedback, setFeedback] = useState(() => {
+        return localStorage.getItem('essayFeedback') || '';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('essayTextInput', textInput);
+    }, [textInput]);
+
+    useEffect(() => {
+        localStorage.setItem('essayFeedback', feedback);
+    }, [feedback]);
 
     const handleInputChange = (event) => {
         setTextInput(event.target.value);
@@ -14,7 +26,7 @@ const Essay = () => {
     const handleSubmit = async () => {
         try {
             const response = await axios.post('http://localhost:5000/generate-essay-feedback', { input: textInput });
-            console.log('Server response:', response.data);  // Add this line
+            console.log('Server response:', response.data);
             if (response.data && typeof response.data.feedback === 'string') {
                 setFeedback(response.data.feedback);
             } else {
@@ -25,7 +37,6 @@ const Essay = () => {
             setFeedback('An error occurred while submitting the essay. Please try again.');
         }
     };
-    
 
     return (
         <div className='dashboard'>

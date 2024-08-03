@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
+import 'react-toastify/dist/ReactToastify.css'; 
 import './css/content.css';
 
 const Content = () => {
     const [textInput, setTextInput] = useState('');
-    const [responseData, setResponseData] = useState([]);
+    const [responseData, setResponseData] = useState(() => {
+        const savedData = localStorage.getItem('responseData');
+        return savedData ? JSON.parse(savedData) : [];
+    });
     const [isLGBTQChecked, setIsLGBTQChecked] = useState(false);
     const [isNeedChecked, setIsNeedChecked] = useState(false);
     const [average, setAverage] = useState(0);
     const [race, setRace] = useState(''); 
     const [gender, setGender] = useState(''); 
     const [income, setIncome] = useState(''); 
+
+    useEffect(() => {
+        localStorage.setItem('responseData', JSON.stringify(responseData));
+    }, [responseData]);
 
     const handleInputChange = (event) => {
         setTextInput(event.target.value);
@@ -67,10 +74,10 @@ const Content = () => {
         try {
             const response = await axios.post('http://localhost:5000/sort-scholarships', { input: updatedInput });
             setResponseData(response.data);
-            toast.success('Submission successful!');  // Show success toast
+            toast.success('Submission successful!');
         } catch (error) {
             console.error('Error sending data:', error);
-            toast.error('There was an error with your submission.');  // Show error toast
+            toast.error('There was an error with your submission.');
         }
     };
 
