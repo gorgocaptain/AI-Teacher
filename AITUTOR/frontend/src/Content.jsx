@@ -78,7 +78,6 @@ const Content = () => {
             <p className="description">*Please provide an accurate description so we can pair you with the most relevant scholarships and programs.</p>
             <input className="sign-button" type="button" value="Submit" onClick={handleSubmit} />
 
-            {/* Display results if needed */}
             {responseData.length > 0 && (
                 <div>
                     <h2>Top Scholarships:</h2>
@@ -90,7 +89,6 @@ const Content = () => {
                 </div>
             )}
 
-            {/* Toast Container */}
             <ToastContainer />
         </div>
     );
