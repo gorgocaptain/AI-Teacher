@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
 import './css/content.css';
 
 const Content = () => {
@@ -14,14 +16,16 @@ const Content = () => {
         try {
             const response = await axios.post('http://localhost:5000/sort-scholarships', { input: textInput });
             setResponseData(response.data);
+            toast.success('Submission successful!');  // Show success toast
         } catch (error) {
             console.error('Error sending data:', error);
+            toast.error('There was an error with your submission.');  // Show error toast
         }
     };
 
     return (
         <div className="content">
-            <h1>who are you?</h1>
+            <h1>Who are you?</h1>
             
             <div className="textarea-container">
                 <textarea
@@ -85,6 +89,9 @@ const Content = () => {
                     </ul>
                 </div>
             )}
+
+            {/* Toast Container */}
+            <ToastContainer />
         </div>
     );
 }
