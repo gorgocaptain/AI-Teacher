@@ -60,8 +60,6 @@ def find_schloarships(user_query):
         index = result.index
         relevance_score = result.relevance_score
         print(f"{idx}. {texts[index]} (Relevance Score: {relevance_score})")
-        break
-
 
 
 if __name__ == '__main__':
