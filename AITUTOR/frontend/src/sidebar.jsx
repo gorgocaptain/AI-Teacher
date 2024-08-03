@@ -12,7 +12,7 @@ const Sidebar = () =>{
                 <BiHome className="icon"/>
                 User
             </a>
-            <a href="#" className="item">
+            <a href="/essay" className="item">
                 <BiTask className="icon"/>
                 Essay
             </a>

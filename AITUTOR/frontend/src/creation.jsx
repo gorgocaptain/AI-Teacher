@@ -27,7 +27,7 @@ const Creation = () => {
       <section className="intro">
         <img src={students} alt="Students" className="intro-image" />
         <p>
-          Scholar Rank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, UniPal is here to make your journey smoother, helping you achieve your academic dreams with confidence.
+          Scholar Rank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, Scholar Rank is here to make your journey smoother, helping you achieve your academic dreams with confidence.
         </p>
       </section>
 
