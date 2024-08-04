@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import cohere
 import csv
-from essai_ai import generate_feedback
+import requests
 
 api_key = 'your-cohere-api-key' 
 co = cohere.Client(api_key)
@@ -20,12 +20,12 @@ def sort_scholarships():
     top_12 = scholarships[:12]
     return jsonify(top_12)
 
-@app.route('/generate-feedback', methods=['POST'])
-def feedback():
+@app.route('/generate-essay-feedback', methods=['POST'])
+def generate_essay_feedback():
     data = request.json
     user_input = data.get('input')
     
-    feedback = generate_feedback(user_input)
+    feedback = get_feedback_from_ai(user_input)
     if feedback:
         return jsonify({"feedback": feedback})
     else:
@@ -63,6 +63,31 @@ def find_scholarships(user_query):
         })
 
     return reranked_scholarships
+
+def get_feedback_from_ai(user_input):
+    API_KEY = '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'
+    URL = 'https://api.openai.com/v1/chat/completions'
+
+    HEADERS = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+    }
+
+    data = {
+        'model': 'gpt-3.5-turbo',
+        'messages': [
+            {"role": "system", "content": "Provide feedback on the essay."},
+            {"role": "user", "content": user_input}
+        ],
+    }
+
+    response = requests.post(URL, headers=HEADERS, json=data)
+    if response.status_code == 200:
+        return response.json()['choices'][0]['message']['content']
+    else:
+        print(f"Error: {response.status_code}")
+        print(response.json())
+        return None
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

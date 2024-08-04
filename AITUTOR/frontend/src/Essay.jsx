@@ -25,7 +25,7 @@ const Essay = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post(' https://b66f-192-12-181-122.ngrok-free.app/generate-essay-feedback', { input: textInput });
+            const response = await axios.post('http://localhost:5000/generate-essay-feedback', { input: textInput });
             console.log('Server response:', response.data);
             if (response.data && typeof response.data.feedback === 'string') {
                 setFeedback(response.data.feedback);
