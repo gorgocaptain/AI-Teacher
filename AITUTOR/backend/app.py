@@ -4,11 +4,11 @@ import cohere
 import csv
 import requests
 
-api_key = 'your-cohere-api-key' 
+api_key = 'hqiRx0LzP0DQd4R4NY9beBtXgv3oT2byqU2mmf4e'  # Replace with your actual API key
 co = cohere.Client(api_key)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Enable CORS for all routes by default
 
 @app.route('/sort-scholarships', methods=['POST'])
 def sort_scholarships():
@@ -32,7 +32,7 @@ def generate_essay_feedback():
         return jsonify({"error": "Unable to generate feedback"}), 500
 
 def find_scholarships(user_query):
-    csv_file_path = "path/to/scholarships.csv"
+    csv_file_path = "./scholarships.csv"
 
     scholarships = []
     with open(csv_file_path, mode='r', encoding='utf-8') as file:
@@ -65,7 +65,7 @@ def find_scholarships(user_query):
     return reranked_scholarships
 
 def get_feedback_from_ai(user_input):
-    API_KEY = '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'
+    API_KEY = 'your-openai-api-key'  # Replace with your actual API key
     URL = 'https://api.openai.com/v1/chat/completions'
 
     HEADERS = {
