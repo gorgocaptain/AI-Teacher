@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    color: black
+}
+
+.tuition {
+    margin-left: 20px;
+    padding: 20px;
+    flex-grow: 1;
+}
+h1 {
+    color: #000; /* Make sure the color is visible on the background */
+    font-size: 32px;
+}
+
+.container {
+    display: flex;
+}
+
+
+.questions {
+    margin-top: 20px;
+}
+
+.radio-group {
+    margin-top: 10px;
+}
+
+.radio-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: black
+
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 10px;
+}
+
+.question1{
+    color: black
+}
