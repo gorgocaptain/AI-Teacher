@@ -42,9 +42,6 @@ def generate_feedback(user_input):
             {"role": "user", "content": user_input}
         ]
         response = chat_with_gpt(messages)
-        if response and 'choices' in response and len(response['choices']) > 0:
+        if response:
             return response['choices'][0]['message']['content']
-        print("Error: No valid response received from GPT.")
         return None
-    print("Error: System prompt could not be loaded.")
-    return None

@@ -2,10 +2,11 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import cohere
 import csv
-import requests
+from essay_ai import generate_feedback
 
-api_key = 'hqiRx0LzP0DQd4R4NY9beBtXgv3oT2byqU2mmf4e'  # Replace with your actual API key
-co = cohere.Client(api_key)
+# Initialize Cohere client with provided API key
+cohere_api_key = 'hqiRx0LzP0DQd4R4NY9beBtXgv3oT2byqU2mmf4e'
+co = cohere.Client(cohere_api_key)
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes by default
@@ -24,8 +25,8 @@ def sort_scholarships():
 def generate_essay_feedback():
     data = request.json
     user_input = data.get('input')
-    
-    feedback = get_feedback_from_ai(user_input)
+    print(user_input)
+    feedback = generate_feedback(user_input)
     if feedback:
         return jsonify({"feedback": feedback})
     else:
@@ -59,35 +60,10 @@ def find_scholarships(user_query):
             "Name": scholarship["name"],
             "Description": scholarship["description"],
             "RelevanceScore": relevance_score,
-            "Amount": scholarship["description"]  
+            "Amount": scholarship["description"]
         })
 
     return reranked_scholarships
-
-def get_feedback_from_ai(user_input):
-    API_KEY = 'your-openai-api-key'  # Replace with your actual API key
-    URL = 'https://api.openai.com/v1/chat/completions'
-
-    HEADERS = {
-        'Authorization': f'Bearer {API_KEY}',
-        'Content-Type': 'application/json'
-    }
-
-    data = {
-        'model': 'gpt-3.5-turbo',
-        'messages': [
-            {"role": "system", "content": "Provide feedback on the essay."},
-            {"role": "user", "content": user_input}
-        ],
-    }
-
-    response = requests.post(URL, headers=HEADERS, json=data)
-    if response.status_code == 200:
-        return response.json()['choices'][0]['message']['content']
-    else:
-        print(f"Error: {response.status_code}")
-        print(response.json())
-        return None
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
