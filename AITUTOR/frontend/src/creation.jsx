@@ -34,7 +34,7 @@ const Creation = () => {
       </section>
 
       <section className="features">
-        <h2>Why Choose Scholar Rank?</h2>
+        <h2>Why Choose Pineapple Pathways?</h2>
         <div className="feature">
           <img src={guidance} alt="Personalized Guidance" className="feature-image" />
           <p><strong>Personalized Guidance:</strong> Tailored advice based on your academic goals and interests.</p>
