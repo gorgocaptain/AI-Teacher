@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "./sidebar";
 import './css/tuition.css';
 import axios from 'axios';
+import { saveAs } from 'file-saver';
 
 const Tuition = () => {
     const [studentType, setStudentType] = useState("");
@@ -14,22 +15,43 @@ const Tuition = () => {
     const handleSubmit = async () => {
         if (university && program && residence) {
             try {
-
-              const response = await axios.post('http://localhost:5001/find_best_match', {
+                const response = await axios.post('http://localhost:5001/find_best_match', {
                     university,
                     program,
                     residence,
                     studentType
                 });
 
-                // Set the tuition info based on the backend response
+                
                 setTuitionInfo(response.data);
+                saveTuitionInfo(response.data);
             } catch (error) {
                 console.error('Error fetching tuition info:', error);
                 setTuitionInfo("An error occurred while fetching tuition information.");
             }
         } else {
             setTuitionInfo("Please fill out all required fields.");
+        }
+    };
+
+    const saveTuitionInfo = (info) => {
+        try {
+           
+            const dataToExport = `
+                Student Type: ${studentType}
+                University: ${university}
+                Faculty: ${faculty}
+                Program: ${program}
+                Residence: ${residence}
+                
+                Tuition Information:\n${info}
+            `;
+
+           
+            const blob = new Blob([dataToExport], { type: 'text/plain;charset=utf-8' });
+            saveAs(blob, 'tuition_information.txt');
+        } catch (error) {
+            console.error('Error exporting data:', error);
         }
     };
 
@@ -125,7 +147,7 @@ const Tuition = () => {
                             Off-Campus
                         </label>
                     </div>
-                    <button className="sign-button" onClick={handleSubmit}>Submit for Review</button>
+                    <button className="sign-button" onClick={handleSubmit}>Calculate</button>
                     
                     {tuitionInfo && <div className="result">
                         <h3>Tuition Information:</h3>
@@ -138,4 +160,3 @@ const Tuition = () => {
 }
 
 export default Tuition;
-

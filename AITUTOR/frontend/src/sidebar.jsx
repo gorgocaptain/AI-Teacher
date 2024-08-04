@@ -18,7 +18,7 @@ const Sidebar = () => {
                     <BiTask className="icon"/>
                     Essay
                 </a>
-                <a href="#" className="item">
+                <a href="/stats" className="item">
                     <BiStats className="icon"/>
                     Stats
                 </a>

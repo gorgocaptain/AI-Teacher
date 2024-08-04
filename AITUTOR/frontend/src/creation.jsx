@@ -10,26 +10,26 @@ import essayAssistance from './images/essay-assistance.jpg';
 import ParticlesComponent from './Particles';
 
 const Creation = () => {
-  const navigate = useNavigate();  // Use useNavigate instead of useHistory
+  const navigate = useNavigate();  
 
   const handleJoinNowClick = () => {
-    navigate('/dashboard');  // Use navigate function to change route
+    navigate('/dashboard'); 
   };
 
   return (
     <div className="application">
       
       <header className="header">
-        <h1>Scholar Rank</h1>
+        <h1>Pineapple Pathways</h1>
         <p>Your Gateway to University Success</p>
       </header>
 
       <section className="intro">
         <p className='above'>Pineapples are symbols of abundance and prosperity</p>
-        <p className='above' id='low'>A pineapple’s intricate pattern mirrors the complexity of university applications. Scholar Rank simplifies scholarships, AIF essays, University costs, and more!</p>
+        <p className='above' id='low'>A pineapple’s intricate pattern mirrors the complexity of university applications. Pineapple Pathways simplifies scholarships, AIF essays, University costs, and more!</p>
         <img src={students} alt="Students" className="intro-image" />
         <p>
-          Scholar Rank is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, Scholar Rank is here to make your journey smoother, helping you achieve your academic dreams with confidence.
+          Pineapple Pathways is your go-to resource for high school students navigating the university application process and seeking scholarships. Our platform offers personalized advice, step-by-step application guidance, scholarship matching, and tips for acing interviews and essays. Whether you're aiming for top universities or seeking financial aid, Pineapple Pathways is here to make your journey smoother, helping you achieve your academic dreams with confidence.
         </p>
       </section>
 
@@ -60,7 +60,7 @@ const Creation = () => {
       <section className="cta">
         <h2>Get Started Today!</h2>
         <p>
-          Sign up for Scholar Rank and take the first step towards securing your future. Whether you're looking for the best universities or the right scholarships, we've got you covered.
+          Sign up for Pineapple Pathways and take the first step towards securing your future. Whether you're looking for the best universities or the right scholarships, we've got you covered.
         </p>
         <button className="signup-button" onClick={handleJoinNowClick}>Join Now</button>
       </section>

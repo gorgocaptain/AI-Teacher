@@ -44,7 +44,7 @@ const Essay = () => {
             <div className='dashboard--content'>
                 <div>
                     <h1>Supplementary Application</h1>
-                    <p>Input an AIF question or input your response to an AIF question</p>
+                    <p>Input an AIF question or input your response to an AIF question. <br></br><br></br>Ex. Tell us about your education goals, your interest in your chosen program(s), and reasons for choosing to apply to the University of Waterloo. If you have applied to more than one program please discuss your interest in each program (maximum 900 characters).</p>
                     <div className="textarea-container">
                         <textarea
                             name="Text1"

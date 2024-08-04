@@ -6,7 +6,7 @@ import Essay from './Essay';
 import Export from './Export';
 import Creation from './creation'; // Import the Creation component
 import { DataProvider } from './Datacontext'; // Import the DataProvider
-
+import Stats from './Stats.jsx';
 function App() {
   return (
     <DataProvider>
@@ -17,6 +17,7 @@ function App() {
           <Route path="/options" element={<Options />} />
           <Route path="/essay" element={<Essay />} />
           <Route path="/export" element={<Export />} />
+          <Route path="/stats" element={<Stats />} />
         </Routes>
       </Router>
     </DataProvider>
