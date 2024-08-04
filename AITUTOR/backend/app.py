@@ -1,14 +1,14 @@
 from flask import Flask, request, jsonify
-import pandas as pd
 from flask_cors import CORS
 import cohere
 import csv
+from essai_ai import generate_feedback
 
-api_key = 'hqiRx0LzP0DQd4R4NY9beBtXgv3oT2byqU2mmf4e' 
+api_key = 'your-cohere-api-key' 
 co = cohere.Client(api_key)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes and origins
+CORS(app)
 
 @app.route('/sort-scholarships', methods=['POST'])
 def sort_scholarships():
@@ -20,8 +20,19 @@ def sort_scholarships():
     top_12 = scholarships[:12]
     return jsonify(top_12)
 
+@app.route('/generate-feedback', methods=['POST'])
+def feedback():
+    data = request.json
+    user_input = data.get('input')
+    
+    feedback = generate_feedback(user_input)
+    if feedback:
+        return jsonify({"feedback": feedback})
+    else:
+        return jsonify({"error": "Unable to generate feedback"}), 500
+
 def find_scholarships(user_query):
-    csv_file_path = "./scholarships.csv"
+    csv_file_path = "path/to/scholarships.csv"
 
     scholarships = []
     with open(csv_file_path, mode='r', encoding='utf-8') as file:
@@ -31,7 +42,7 @@ def find_scholarships(user_query):
                 "name": row['Award Name'],
                 "description": f"Organization: {row['Organization']}. Purpose: {row['Purpose']}. Level Of Study: {row['Level Of Study']}. Award Type: {row['Award Type']}. Award Amount: {row['Award Amount']}. Deadline: {row['Deadline']}"
             })
-        
+    
     texts = [f"{scholarship['name']}: {scholarship['description']}" for scholarship in scholarships]
 
     response = co.rerank(
