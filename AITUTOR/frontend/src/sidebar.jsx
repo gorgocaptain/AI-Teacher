@@ -24,7 +24,7 @@ const Sidebar = () => {
                 </a>
                 <a href="/options" className="item">
                     <BiSolidReport className="icon"/>
-                    Options
+                    Tuition
                 </a>
             </div>
             <div className="menu--export">
