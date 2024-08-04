@@ -72,7 +72,7 @@ const Content = () => {
             updatedInput += ` Family Income: ${income}`; 
         }
         try {
-            const response = await axios.post('http://localhost:5000/sort-scholarships', { input: updatedInput });
+            const response = await axios.post('https://b66f-192-12-181-122.ngrok-free.app/sort-scholarships', { input: updatedInput });
             setResponseData(response.data);
             toast.success('Submission successful!');
         } catch (error) {
